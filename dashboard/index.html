@@ -61,7 +61,7 @@
             Object.keys(targets).forEach(id => document.getElementById(id).textContent = 'Fetching updated metrics...');
 
             try {
-                const response = await fetch('/api/status');
+                const response = await fetch('api/status');
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 
                 const data = await response.json();
