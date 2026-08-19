@@ -6,10 +6,12 @@ FROM python:3.11-slim
 # Create and set present working directory
 WORKDIR /metrics-Collector
 
-# Install iproute2
-RUN apt-get update && \
-apt-get install -y iproute2 && \
-rm -rf /var/lib/apt/lists/*
+# Install iproute2, curl & ping
+RUN apt-get update && apt-get install -y \
+iproute2 \
+curl \
+iputils-ping \
+&& rm -rf /var/lib/apt/lists/*
 
 # Copy requirements file
 COPY requirements.txt ./

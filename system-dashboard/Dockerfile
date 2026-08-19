@@ -1,4 +1,4 @@
-# Dockerfile for Dashboard
+# Dockerfile for System Dashboard
 
 # Nginx Alpine base image
 FROM nginx:alpine
@@ -9,5 +9,5 @@ COPY index.html /usr/share/nginx/html
 # Copy configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Prt Mapping
+# Port Mapping
 EXPOSE 80

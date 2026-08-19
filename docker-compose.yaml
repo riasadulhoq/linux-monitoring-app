@@ -1,8 +1,8 @@
 services:
   frontend:
-    image: dashboard:1.0
+    image: monitoring-frontend:1.0
     build: 
-      context: ./dashboard
+      context: ./system-dashboard
       dockerfile: Dockerfile
     container_name: system-dashboard
     ports:
@@ -17,7 +17,7 @@ services:
         condition: service_started
 
   backend:
-    image: metrics-collector:1.0
+    image: monitoring-backend:1.0
     build: 
       context: ./metrics-collector
       dockerfile: Dockerfile
@@ -34,6 +34,8 @@ networks:
 
 volumes:
   nginx-logs:
+    driver: local
   api-logs:
+   driver: local
 
   
