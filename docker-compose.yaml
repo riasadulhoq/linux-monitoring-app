@@ -1,0 +1,39 @@
+services:
+  frontend:
+    image: dashboard:1.0
+    build: 
+      context: ./dashboard
+      dockerfile: Dockerfile
+    conatiner_name: system-dashboard
+    ports:
+      - 9090:80
+    networks:
+      - monitoring-app-network
+    volumes:
+      - nginx-logs:/var/log/nginx
+    restart: on-failure:3
+    depends_on:
+      metrics-collector:
+        condition: service_started
+
+  backend:
+    image: metrics-collector:1.0
+    build: 
+      context: ./metrics-collector
+      dockerfile: Dockerfile
+    conatiner_name: metrics-collector
+    networks:
+      - monitoring-app-network
+    volumes:
+      - api-logs:/var/log
+    restart: on-failure:3
+
+networks:
+  monitoring-app-network:
+    driver: bridge
+
+volumes:
+  - nginx-logs
+  - api-logs
+
+  
