@@ -14,7 +14,8 @@ services:
     restart: on-failure:3
     depends_on:
       backend:
-        condition: service_started
+        condition: service_healthy
+        restart: true
 
   backend:
     image: monitoring-backend:1.0
@@ -27,15 +28,25 @@ services:
     volumes:
       - api-logs:/var/log
     restart: on-failure:3
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:6000/status"]
+      interval: 5s
+      retries: 3
+      start_period: 5s
+      timeout: 3s
+
 
 networks:
   monitoring-app-network:
+    name: monitoring-app-network
     driver: bridge
 
 volumes:
   nginx-logs:
+    name: nginx-logs
     driver: local
   api-logs:
-   driver: local
+    name: api-logs
+    driver: local
 
   
