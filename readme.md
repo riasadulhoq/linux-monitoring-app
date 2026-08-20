@@ -20,7 +20,19 @@ linux-monitoring-app/
 ```
 
 **Screenshots**
+Screenshot of the working dashboard
+
+Docker compose ps
 ![docker compose ps output](assets/compose-ps.png)
+
+Docker images
+![docker images output](assets/images.png)
+
+Docker network
+![docker network ls output](assets/network-ls.png)
+
+Docker volume
+![docker volume ls output](assets/volume-ls.png)
 
 **Overview**
 - `metrics-collector`: Python collector service that gathers system metrics and runs as the backend.
@@ -56,6 +68,14 @@ Open the dashboard in your browser: http://localhost:9090
 - Collector entrypoint: [metrics-collector/app.py](metrics-collector/app.py)
 - Frontend static site: [system-dashboard/index.html](system-dashboard/index.html)
 - Docker configuration: [docker-compose.yaml](docker-compose.yaml)
+
+**Q&A**
+- What is the difference between a Docker image and a container?
+- What does 9090:80 mean?
+- Why do containers need a Docker network?
+- Why do we use Docker volumes?
+- What problem does Docker Compose solve?
+- Add a restart policy to the services and explain what it does.
 
 **License**
 This project is unlicensed — add a `LICENSE` file if you intend to open-source it.
