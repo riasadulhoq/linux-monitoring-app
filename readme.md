@@ -20,18 +20,23 @@ linux-monitoring-app/
 ```
 
 **Screenshots**
-Screenshot of the working dashboard
 
-Docker compose ps
+System Dashboard
+
+List of currently running containers 
+
 ![docker compose ps output](assets/compose-ps.png)
 
-Docker images
+List of images
+
 ![docker images output](assets/images.png)
 
-Docker network
+List of networks
+
 ![docker network ls output](assets/network-ls.png)
 
-Docker volume
+List of volumes
+
 ![docker volume ls output](assets/volume-ls.png)
 
 **Overview**
