@@ -52,7 +52,7 @@ List of volumes
 Build and start services:
 
 ```bash
-docker-compose up --build
+docker compose up --build -d
 ```
 
 Open the dashboard in your browser: http://localhost:9090
@@ -66,8 +66,8 @@ Open the dashboard in your browser: http://localhost:9090
 - API/collector logs: Docker volume `api-logs`.
 
 **Development notes**
-- Rebuild backend only: `docker-compose build backend && docker-compose up backend`.
-- Rebuild frontend only: `docker-compose build frontend && docker-compose up frontend`.
+- Rebuild backend only: `docker compose up --build -d backend`.
+- Rebuild frontend only: `docker compose up --build -d frontend`.
 
 **Files to inspect**
 - Collector entrypoint: [metrics-collector/app.py](metrics-collector/app.py)
