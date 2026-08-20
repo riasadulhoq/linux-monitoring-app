@@ -2,7 +2,6 @@
 
 A small monitoring stack that collects system metrics and serves a lightweight dashboard.
 
-![docker compose ps output](assets/compose-ps.png)
 
 **Project Structure**
 
@@ -19,6 +18,9 @@ linux-monitoring-app/
 		index.html
 		nginx.conf
 ```
+
+**Screenshots**
+![docker compose ps output](assets/compose-ps.png)
 
 **Overview**
 - `metrics-collector`: Python collector service that gathers system metrics and runs as the backend.
