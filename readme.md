@@ -82,6 +82,5 @@ Open the dashboard in your browser: http://localhost:9090
 - What problem does Docker Compose solve?
 - Add a restart policy to the services and explain what it does.
 
-**License**
-This project is unlicensed — add a `LICENSE` file if you intend to open-source it.
+
 
