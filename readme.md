@@ -25,6 +25,8 @@ linux-monitoring-app/
 
 System Dashboard
 
+![System Dashboard](assets/dashboard.png)
+
 List of currently running containers 
 
 ![docker compose ps output](assets/compose-ps.png)
