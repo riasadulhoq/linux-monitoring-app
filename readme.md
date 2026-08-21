@@ -4,22 +4,6 @@ A small monitoring stack that collects system metrics and serves a lightweight d
 Technologies used: Python (API backend, built with FastAPI and served via Uvicorn) and Nginx (static frontend); services are containerised with Docker and orchestrated via Docker Compose.
 
 
-**Project Structure**
-
-```
-linux-monitoring-app/
-├── docker-compose.yaml
-├── readme.md
-├── assets/
-├── metrics-collector/
-│   ├── app.py
-│   ├── Dockerfile
-│   └── requirements.txt
-└── system-dashboard/
-    ├── Dockerfile
-    ├── index.html
-    └── nginx.conf
-```
 
 **Screenshots**
 
@@ -42,6 +26,24 @@ List of networks
 List of volumes
 
 ![docker volume ls output](assets/volume-ls.png)
+
+
+**Project Structure**
+
+```
+linux-monitoring-app/
+├── docker-compose.yaml
+├── readme.md
+├── assets/
+├── metrics-collector/
+│   ├── app.py
+│   ├── Dockerfile
+│   └── requirements.txt
+└── system-dashboard/
+    ├── Dockerfile
+    ├── index.html
+    └── nginx.conf
+```
 
 **Overview**
 - `metrics-collector`: Python collector service that gathers system metrics and runs as the backend.
