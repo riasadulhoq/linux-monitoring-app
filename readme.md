@@ -1,7 +1,7 @@
 # Linux Monitoring App
 
 A small monitoring stack that collects system metrics and serves a lightweight dashboard. 
-Technologies used: Python (API backend, built with FastAPI and served via Uvicorn) and Nginx (static frontend); services are containerized with Docker and orchestrated via Docker Compose.
+Technologies used: Python (API backend, built with FastAPI and served via Uvicorn) and Nginx (static frontend); services are containerised with Docker and orchestrated via Docker Compose.
 
 
 **Project Structure**
