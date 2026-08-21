@@ -1,22 +1,24 @@
 # Linux Monitoring App
 
-A small monitoring stack that collects system metrics and serves a lightweight dashboard.
+A small monitoring stack that collects system metrics and serves a lightweight dashboard. 
+Technologies used: Python (API backend, built with FastAPI and served via Uvicorn) and Nginx (static frontend); services are containerized with Docker and orchestrated via Docker Compose.
 
 
 **Project Structure**
 
 ```
 linux-monitoring-app/
-	docker-compose.yaml
-	readme.md
-	metrics-collector/
-		app.py
-		Dockerfile
-		requirements.txt
-	system-dashboard/
-		Dockerfile
-		index.html
-		nginx.conf
+├── docker-compose.yaml
+├── readme.md
+├── assets/
+├── metrics-collector/
+│   ├── app.py
+│   ├── Dockerfile
+│   └── requirements.txt
+└── system-dashboard/
+    ├── Dockerfile
+    ├── index.html
+    └── nginx.conf
 ```
 
 **Screenshots**
@@ -77,31 +79,32 @@ Open the dashboard in your browser: http://localhost:9090
 **Q&A**
 - What is the difference between a Docker image and a container?
 
-Image is a read only file that contains containerised version of the application code, dependencies, runtime environment. It's written using a Dockerfile.
+  Image is a read only file that contains containerised version of the application code, dependencies, runtime environment. It's written using a Dockerfile.
 
-Container is the running version of that image.
+  Container is the running instances of that image.
 
 - What does 9090:80 mean?
 
-Port mapping/forwarding. Host machine is listening on port 9090 and it will forward it to port 80 of the container.
+  Port mapping/forwarding. Host machine is listening on port 9090 and it will forward it to port 80 on the container. host:container (9090:80)
 
 - Why do containers need a Docker network?
  
-For service discovery and so that multiple containers can communicate with each other on the same network.To achieve that we need to create a custom bridge network.It normally has a private IP range, 172.18...
+  For service discovery and so that multiple containers can communicate with each other on the same network.To achieve that we need to create a custom bridge network.It normally has a private IP range, 172.18...
 
-There are other network types like none and host network.
+  There are other network types like "none" and "host" network.
 
 - Why do we use Docker volumes?
 
-By default, docker containers are ephemeral. Once you delete the container, the data is lost. To persist data, you need docker volumes. Two types of volume, bind mount (bind with host directory,host managed) and named volumes (managed by docker within host directory /var/lib/volumes).
+  By default, docker containers are ephemeral. Once you delete the container, the data is lost. To persist data, you need docker volumes. Two types of volume, bind mount (bind with host directory,host managed) and named volumes (managed by docker within host directory /var/lib/volumes).
 
 - What problem does Docker Compose solve?
 
-Instead of running each container separately with long docker run commands, docker compose helps us to orchestrate the whole docker application setup, so all the containers part of the same application, network, volumes can be part of a simple docker compose file(yaml), which then can be started/stopped with docker compose command. We can also version control it.
+  Instead of running many separate `docker run` commands, Docker Compose lets you declare an application's services, networks, and volumes in a single YAML file. The compose file can be version-controlled to reproduce environments and to declare dependency ordering, healthchecks, and other service-level settings. You can then create, start, stop, or rebuild the entire stack using `docker compose` commands.
+  
 
 - Add a restart policy to the services and explain what it does?
 
-on failure:3 restart policy has been added. So if the container shuts down with a non zero exit status, docker will try to restart it max 3 times.
+  `restart: on-failure:3` restart policy has been added. So if the container shuts down with a non zero exit status, docker will try to restart it up to 3 times.
 
 
 
