@@ -81,32 +81,32 @@ Open the dashboard in your browser: http://localhost:9090
 **Q&A**
 - What is the difference between a Docker image and a container?
 
-  Image is a read only file that contains containerised version of the application code, dependencies, runtime environment. It's written using a Dockerfile.
+  An image is a read-only file that contains containerised version of the application code, dependencies, and runtime environment. It's written using a Dockerfile.
 
-  Container is the running instances of that image.
+  A container is the running instance of that image.
 
 - What does 9090:80 mean?
 
-  Port mapping/forwarding. Host machine is listening on port 9090 and it will forward it to port 80 on the container. host:container (9090:80)
+  Port mapping/forwarding. The host machine is listening on port 9090, and it will forward it to port 80 on the container. host:container (9090:80)
 
 - Why do containers need a Docker network?
  
-  For service discovery and so that multiple containers can communicate with each other on the same network.To achieve that we need to create a custom bridge network.It normally has a private IP range, 172.18...
+  For service discovery and so that multiple containers can communicate with each other on the same network. To achieve that, we need to create a custom bridge network. It normally has a private IP range, `172.18...`
 
   There are other network types like "none" and "host" network.
 
 - Why do we use Docker volumes?
 
-  By default, docker containers are ephemeral. Once you delete the container, the data is lost. To persist data, you need docker volumes. Two types of volume, bind mount (bind with host directory,host managed) and named volumes (managed by docker within host directory /var/lib/volumes).
+  By default, Docker containers are ephemeral. Once you delete the container, the data is lost. To persist data, you need Docker volumes. Two types of volumes: bind mounts (bind with a host directory, host-managed) and named volumes (managed by Docker within the host directory `/var/lib/volumes`).
 
 - What problem does Docker Compose solve?
 
-  Instead of running many separate `docker run` commands, Docker Compose lets you declare an application's services, networks, and volumes in a single YAML file. The compose file can be version-controlled to reproduce environments and to declare dependency ordering, healthchecks, and other service-level settings. You can then create, start, stop, or rebuild the entire stack using `docker compose` commands.
+  Instead of running many separate `docker run` commands, Docker Compose lets you declare an application's services, networks, and volumes in a single YAML file. The compose file can be version-controlled to reproduce environments and to declare dependency ordering, health checks, and other service-level settings. You can then create, start, stop, or rebuild the entire stack using `docker compose` commands.
   
 
 - Add a restart policy to the services and explain what it does?
 
-  `restart: on-failure:3` restart policy has been added. So if the container shuts down with a non zero exit status, docker will try to restart it up to 3 times.
+  `restart: on-failure:3` restart policy has been added. So if the container shuts down with a non-zero exit status, Docker will try to restart it up to 3 times.
 
 
 
